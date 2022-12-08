@@ -18,7 +18,18 @@ async function load(){
     res.urls.map(({name, url}) => addElement({name, url})) 
 }
 
-load()
+load() 
+
+/* fetch('https://jsonplaceholder.typicode.com/users')
+.then(T => T.json())
+.then((dt)=>{
+    return dt.map(function(item){
+        const li = document.createElement('li')
+        li.innerHTML = `Nome: ${item.name}, E-mail: ${item.email}` 
+        document.querySelector('ul').appendChild(li) 
+    })
+
+}) */
 
 
 function addElement({ name, url }) {
@@ -61,5 +72,17 @@ form.addEventListener('submit', (event) => {
 
     addElement({ name, url })
 
+    fetch(`http://localhost:3000?name=${name}`)
+
     input.value = ''
 })
+
+/* 
+npm run api 
+npm start 
+
+formato:
+name,http://devfullstack.com
+
+para inserir
+http://localhost:3000/?name=marcos&url=http */
