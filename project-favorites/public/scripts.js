@@ -15,7 +15,7 @@ const form = document.querySelector('form')
 
 async function load(){
     const res = await fetch('http:localhost:3000').then(data => data.json())
-    res.urls.map(item => addElement(item)) 
+    res.urls.map(({name, url}) => addElement({name, url})) 
 }
 
 load()
