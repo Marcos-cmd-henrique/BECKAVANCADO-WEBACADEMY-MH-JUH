@@ -22,6 +22,7 @@ http.createServer((req, res) => {
     res.writeHead(200, {
         'Access-Control-Allow-Origin': '*'
     })
+    
     if(!name || !url)
         return res.end(JSON.stringify(data))
     
