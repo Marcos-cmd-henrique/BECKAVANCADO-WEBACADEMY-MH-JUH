@@ -13,7 +13,13 @@ const form = document.querySelector('form')
 
 // load()
 
-fetch('http:localhost:3000').then(data => data.json()).then(data => console.log(data))
+async function load(){
+    const res = await fetch('http:localhost:3000').then(data => data.json())
+    res.urls.map(item => addElement(item)) 
+}
+
+load()
+
 
 function addElement({ name, url }) {
     const li = document.createElement('li')
