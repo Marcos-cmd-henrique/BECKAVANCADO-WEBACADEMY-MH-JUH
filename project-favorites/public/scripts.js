@@ -20,6 +20,11 @@ async function load(){
 
 load() 
 
+async function create({name, url}){
+    const chave='http://localhost:3000/?name='+name+'&url='+url;
+    await fetch(chave)  
+}
+
 /* fetch('https://jsonplaceholder.typicode.com/users')
 .then(T => T.json())
 .then((dt)=>{
@@ -70,9 +75,10 @@ form.addEventListener('submit', (event) => {
     if (!/^http/.test(url))
         return alert('Digite a url da maneira correta.')
 
+    create({name, url})
     addElement({ name, url })
 
-    fetch(`http://localhost:3000?name=${name}`)
+    
 
     input.value = ''
 })
